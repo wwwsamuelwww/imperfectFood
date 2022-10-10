@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
+    crossorigin="anonymous">
+    <title>Imperfect Food</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Imperfect Food</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Mis productos</a></li>
+                  <li><a class="dropdown-item" href="#">Productos en general (*)</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Vendedores
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Compradores
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                </ul>
+              </li>
+              
+            </ul>
+          </div>
+
+
+        </div>
+      </nav>
+
+    <div class = "container">
+        <div class="text-center">
+            <h2>Registro de Compradores</h2>
+        </div>
+            <div class="row justify-content-center my-5">
+                <div class="col-lg-7">
+                    <form action="conectar.php" method="post">
+                        
+                        <label for="Nombre" class ="form-label">Nombre:</label>
+                        <input type="text" name="Name" id="Nombre" class = "form-control" required>
+                        
+                        <label for="Nombre-Usuario" class ="form-label">Nombre de Usuario:</label>
+                        <input type="text" name="UserName" id="Nombre-Usuario" class = "form-control" required>
+
+                        <label for="Contraseña" class ="form-label">Contraseña:</label>
+                        <input type="text" name="Password" id="Contraseña" class = "form-control" required>
+
+                        <label for="Fecha-Nacimiento" class ="form-label">Fecha de nacimiento:</label>
+                        <input type="date" name="BirthDate" id="Fecha-Nacimiento" class = "form-control" required>
+
+                        <label for="Correo" class ="form-label">Correo:</label>
+                        <input type="email" name="Email" id="Correo" class = "form-control" required>
+
+                        <label for="Telefono" class ="form-label">Telefono</label>
+                        <input type="text" name="Cellphone" id="Telefono" class = "form-control" required>
+                        
+                        <br>
+                    </form>
+                    
+                    
+
+                </div>
+                <div class = text-center>
+
+                </div>
+                <div class = text-center>
+                    <button type="button" class="btn btn-primary">Registrar</button>
+                    <button type="button" class="btn btn-primary">Cancelar</button>
+
+                </div>
+                
+            </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" 
+    crossorigin="anonymous"></script>
+    
+</body>
+</html>
