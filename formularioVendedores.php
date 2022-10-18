@@ -14,69 +14,85 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="paginaPrincipal.html">
-
-          <strong>Imperfect food</strong></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            </ul>
-          </div>
+       <div class="container-fluid">
+          <a class="navbar-brand" href="#">Imperfect Food</a>
+       </div>
+    </nav>
 
 
-        </div>
-      </nav>
     <div class = "container">
         <div class="text-center">
             <h2>Registro de Vendedores</h2>
         </div class="alert alert-danger" role="alert">
             <div class="row justify-content-center my-5">
                 <div class="col-lg-7">
-                    <form action="registrarVendedores.php" method="post">
-                        
-                        <label for="NombreDeNegocio" class ="form-label">Nombre de Negocio:</label>
-                        <input type="text" name="NombreNegocio" id="NombreDeNegocio" class = "form-control" minlength = 3 maxlength = 20 required>
-                      
-                        <label for="Email" class ="form-label">Email:</label>
-                        <input type="text" name="Email" id="Email" class = "form-control" required>
-                        
-                        <label for="Password" class ="form-label">Contraseña:</label>
-                        <input type="text" name="Password" id="Password" class = "form-control" minlength = 6 maxlength = 14 required>
+                    <form action="registrarVendedores.php" method="post" enctype = "multipart/form-data" class="needs-validation" novalidate>
+                      <div class="col-md-8">
+                          <label for="NombreNegocio" class="form-label">Nombre de Negocio:</label>
+                          <input type="text" name="NombreNegocio" id="NombreNegocio"class="form-control" pattern = "^[A-Z|a-z|0-9|`|&|.|\s]{3,20}$" required>
+                          <div class="invalid-feedback">
+                            Ingrese un nombre valido
+                          </div>
+                      </div>
 
-                        <label for="Telefono" class ="form-label">Telefono:</label>
-                        <input type="text" name="Telefono" id="Telefono" class = "form-control" required >
-                        
-                        <label for="Ubicacion" class ="form-label">Ubicación:</label>
-                        <input type="text" name="Ubicacion" id="Ubicacion" class = "form-control" required>
-
-                        <label for="Descripcion" class ="form-label">Descripción</label>
-                        <input type="text" name="Descripcion" id="Descripcion" class = "form-control" required>
-                        
-                        <br/>
-
-                        <div class = text-center>
-                            <button type="button" href="paginaPrincipal.html" class="btn btn-danger">
-                                <a style="text-decoration:none; color:white" href="paginaPrincipal.php">Cancelar </a>
-                            </button>
-                            <button id="botonregistrar" type="submit" class="btn btn-sucess">
-                                <a style="text-decoration:none; color:white" href="paginaPrincipal.php">Registrar</a>
-                            </button>
-                            
-                            
-        
+                        <div class="col-md-8">
+                          <label for="Email" class="form-label">Email: </label>
+                          <input type="text" name="Email" id="Email" class="form-control" placeholder="example@gmail.com" pattern = "^[^ ]+@[^ ]+\.[a-z]{2,3}$" placeholder = "ejemplo@gmail.com" required>
+                          <div class="invalid-feedback">
+                            Ingrese un email valido
+                          </div>
                         </div>
+
+                        <div class="col-md-8">
+                          <label for="Password" class="form-label">Contraseña:</label>
+                            <input type="password" name="Password" id="Password" class="form-control" pattern = "^[A-Z|a-z|0-9]{6,14}$" required>
+                            <div class="invalid-feedback">
+                                La contraseña debe tener minimo 6 caracteres y maximo 14
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                          <label for="Telefono" class="form-label">Telefono: </label>
+                          <input type="text" name="Telefono" id="Telefono" class="form-control" pattern = "[7|6][0-9]{7}$" required>
+                          <div class="invalid-feedback">
+                            El telefono debe tener 8 digitos y comenzar con el 6 o el 7
+                          </div>
+                        </div>
+
+                        <div class="col-md-8">
+                          <label for="validationCustom05" class="form-label">Ubicacion: </label>
+                          <input type="text" name="Ubicacion" id="Ubicacion" class="form-control" placeholder="https://goo.gl/maps/........." pattern = "https:\/\/goo.gl\/maps+\/\w+" required>
+                          <div class="invalid-feedback">
+                            Ingrese una ubicacion valida
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-8">
+                          <label for="Descripcion" class="form-label">Descripcion: </label>
+                          <input type="text" name="Descripcion" id="Descripcion" class = "form-control" pattern =  ^[A-Z|a-z|0-9]{30,300}$>
+                        </div>
+
+                        <div class="col-md-8">
+                          <label for="ImagenVendedor" class="form-label">Ingresar una imagen: </label>
+                          <input type="file" name="ImagenVendedor" id="ImagenVendedor" class = "form-control">
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="row justify-content-center my-3">
+                                <div class="col" >
+                                    <a href="paginaPrincipal.php" class="btn btn-danger" role="button">Cancelar</a>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-success">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
                     </form>
                 </div>
-                <div class = text-center>
-                </div>
-                
             </div>
     </div>
-
+    <script src="validacion.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" 

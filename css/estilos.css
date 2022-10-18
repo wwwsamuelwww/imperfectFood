@@ -25,6 +25,3 @@ main > .container{
   form .field.error .error{
     display: block;
   }
-  .btn-sucess{
-    background-color: grey;
-  }

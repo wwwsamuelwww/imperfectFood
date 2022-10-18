@@ -1,15 +1,78 @@
 <?php
+      $hostname = "localhost";
+      $database = "imperfectfood";
+      $username = "postgres";
+      $password = "betaalfa800135555";
 
-    $host = 'localhost';
-    $bd='imperfectfood';
-    $user='postgres';
-    $pass='betaalfa800135555';
+      $conexion = pg_connect("host=$hostname dbname=$database user=$username password=$password");
+      $query=("INSERT INTO productos(nombreproducto,precio,preciooferta,stock,descripcion) VALUES('$_REQUEST[NombreDeProducto]','$_REQUEST[Precio]','$_REQUEST[PrecioDeOferta]','$_REQUEST[Stock]','$_REQUEST[Descripcion]')");
+      $consulta=pg_query($conexion,$query);
 
-    $conexion = pg_connect("host=$host dbname=$bd user=$user password=$pass");
+      if(!$conexion){
+        echo "error de conexion";
+        exit;
+      }
 
-    $query=("INSERT INTO productos(nombreproducto,precio,preciooferta,stock,descripcion)VALUES('$_REQUEST[NombreDeProducto]','$_REQUEST[Precio]','$_REQUEST[PrecioDeOferta]','$_REQUEST[Stock]','$_REQUEST[Descripcion]')");
-    
-    $consulta=pg_query($conexion,$query);
-    pg_close();
-    echo 'Datos ingresados correctamente';	
+      $result = pg_query($conexion,"SELECT idproducto FROM productos ORDER BY idproducto DESC LIMIT 1");
+      if(!$result){
+        echo "ocurrio un error";
+        exit;
+      }
+      $resultado =  $arr = pg_fetch_array($result, 0, PGSQL_NUM);
+      
+
+      include_once 'google-api-php-client-v2.7.2-PHP7.0/vendor/autoload.php';
+
+      // Variables de credenciales.
+      $claveJSON = '1Apo5zjDAftK5vAAt52BSatM-2SvTIDek';
+      $pathJSON = 'crucial-baton-365602-b15bece877db.json';
+            
+      //configurar variable de entorno
+      putenv('GOOGLE_APPLICATION_CREDENTIALS=crucial-baton-365602-b15bece877db.json');
+        
+      $client = new Google_Client();
+      $client->useApplicationDefaultCredentials();
+      $client->setScopes(['https://www.googleapis.com/auth/drive.file']);
+            try{	
+                $nombre = $_FILES['Imagen']['name'];
+                //instanciamos el servicio
+                $service = new Google_Service_Drive($client);
+                $file_path = $_FILES['Imagen']['tmp_name'];
+               
+                //instacia de archivo
+                $file = new Google_Service_Drive_DriveFile();
+                $file->setName($nombre);
+
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mime_type = finfo_file($finfo,$file_path);
+        
+               
+                //id de la carpeta donde hemos dado el permiso a la cuenta de servicio 
+                $file->setParents(array('1Apo5zjDAftK5vAAt52BSatM-2SvTIDek'));
+                $file->setMimeType($mime_type);
+                $result = $service->files->create(
+                  $file,
+                  array(
+                    'data' => file_get_contents($file_path),
+                    'mimeType' => $mime_type,
+                    'uploadType' => 'media',
+                  )
+                );
+            
+                $ruta = 'https://drive.google.com/uc?export=download&id=' . $result->id;
+                $extension = $_FILES['Imagen']['type'];
+
+                $query2=("INSERT INTO imagenesproductos(idproducto,nombre,ruta,extension) VALUES ('$resultado[0]','$nombre','$ruta','$extension')");
+                $consulta2=pg_query($conexion,$query2);
+                pg_close();
+            }catch(Google_Service_Exception $gs){
+                $m=json_decode($gs->getMessage());
+                echo $m->error->message;
+            }catch(Exception $e){
+                echo $e->getMessage();  
+            }
+
+      
+      $url= 'paginaPrincipal.php';
+      echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 ?>
