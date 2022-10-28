@@ -1,9 +1,9 @@
 <?php
 
-    $hostname = "localhost";
-    $database = "imperfectfood";
-    $username = "postgres";
-    $password = "betaalfa800135555";
+$hostname = "ec2-3-223-242-224.compute-1.amazonaws.com";
+$database = "d3gjt0iuuaep2i";
+$username = "abtwruisrazyca";
+$password = "cfa4a97fb0bc0aceab480115983e949c4365b9e41cf9a44ffa260d8819aa2e0f";
 
     $conexion = pg_connect("host=$hostname dbname=$database user=$username password=$password");
     
@@ -77,7 +77,7 @@
             }
 
       
-      $url= 'miPerfil.php';
+      $url= 'paginaPrincipalConPerfil.php';
       echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 
     

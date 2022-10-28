@@ -34,13 +34,13 @@
     rel="stylesheet" 
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
     crossorigin="anonymous">
-    <title>Document</title>
+    <title>Imperfect Food</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Imperfect Food</a>
+          <a class="navbar-brand" href="paginaPrincipalConPerfil.php">Imperfect Food</a>
        </div>
     </nav>
 
@@ -55,7 +55,7 @@
             <div class="col-lg-4">
               <div class="card mb-4 border-0" >
                 <div class="card-body text-center" >
-                  <img src="<?php echo $row['ruta'];?>" width="180" height="200" alt="avatar"
+                  <img src="<?php echo $row['ruta'];?>" width="200" height="200" alt="avatar"
                     class="rounded-0" style="width: 150px;">
                 </div>
               </div>
@@ -66,7 +66,7 @@
                 <div class="card-body rounded-0">
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Nombre:</p>
+                      <p class="mb-0">Nombre de negocio:</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0"><?php echo $row['nombrenegocio'];?></p>
@@ -84,16 +84,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Contraseña:</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0"><?php echo $row['contrasenia'];?></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Telefono:</p>
+                      <p class="mb-0">Teléfono:</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0"><?php echo $row['telefono'];?></p>
@@ -102,7 +93,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Ubicacion:</p>
+                      <p class="mb-0">Ubicación:</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0"><?php echo $row['ubicacion'];?></p>
@@ -112,7 +103,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Descripcion:</p>
+                      <p class="mb-0">Descripción:</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0"><?php echo $row['descripcion'];?></p>
@@ -128,7 +119,7 @@
         <div class="text-center">
             <div class="row justify-content-center my-5">
                 <div class="col-2">
-                    <a href="paginaPrincipal.php" class="btn btn-danger" role="button">Volver</a>
+                    <a href="paginaPrincipalConPerfil.php" class="btn btn-danger rounded-0" role="button">Volver</a>
                 </div>
                 <!--
                 <div class="col-2">
@@ -136,7 +127,7 @@
                 </div>
                  -->
                 <div class="col-2">
-                    <a href="formularioProductos.php" class="btn btn-success" role="button">Añadir Producto</a>
+                    <a href="formularioProductos.php" class="btn btn-success rounded-0" role="button">Añadir Producto</a>
                 </div>
             </div>
         </div>

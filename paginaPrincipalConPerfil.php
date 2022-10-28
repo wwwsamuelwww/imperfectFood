@@ -53,7 +53,8 @@ $resultado =  pg_fetch_all($result);
                       Vendedores
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="formularioVendedores.php">Registrarse</a></li>
+                     <li><a class="dropdown-item" href="miPerfil.php">Mi perfil</a></li>
+                     <li><a class="dropdown-item" href="paginaPrincipal.php">Salir de sesión</a></li>
                   </ul>
                 </li>
               </ul>
@@ -61,7 +62,7 @@ $resultado =  pg_fetch_all($result);
         </div>
       </nav>
  
-       <div class="container my-4">
+       <div class="container my-4" style="font-family:Arial;font-size: 16px">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
             <?php if (is_array($resultado) || is_object($resultado)): foreach($resultado as $row){ ?> 
               <div class="col">
@@ -69,10 +70,10 @@ $resultado =  pg_fetch_all($result);
                   <div class="row justify-content-center ">
                     <div class="col">
                       <div class="card mb-1 border-0" >
-                        <div class="card-body text-center" >
+                        <div class="card-body text-center">
                           <img src="<?php echo $row['ruta'];?>"  width="200" height="200">
                           
-                            <div class="text-center">
+                            <div class="text-center" id="contenedor">
                                <h4> <?php echo $row['nombreproducto'];?> </h4>
                             </div>
                           
@@ -82,13 +83,13 @@ $resultado =  pg_fetch_all($result);
                   <div class="col">
                       <div class="card-body">
                         <div class="card mb-4 border-0 text-white bg-danger text-center rounded" >
-                          <div class="card-body "> 
-                              Oferta: <?php echo $row['preciooferta'];?> Bs.
+                          <div class="card-body"> 
+                              OFERTA: <?php echo $row['preciooferta'];?>
                           </div>
-                        </div >
-                          <h6 class="card-text">Precio Normal: <del><?php echo $row['precio'];?></del> Bs.</h6>
+                        </div>
+                          <h6 class="card-text">Precio normal: <del> <?php echo $row['precio'];?> </del> </h6>
                           <h6 class="card-text">Stock: <?php echo $row['stock'];?></h6>
-                          <p> <?php echo $row['descripcion'];?> </p>
+                          <p> <?php echo $row['descripcion'];?></p>
                         </div>
                       </div>
                    </div>
