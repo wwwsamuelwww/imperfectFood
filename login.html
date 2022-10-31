@@ -1,3 +1,26 @@
+<?php
+
+      $hostname = "localhost";
+      $database = "imperfectfood";
+      $username = "postgres";
+      $password = "password";
+
+      $con = pg_connect("host=$hostname dbname=$database user=$username password=$password");
+
+      if(!$con){
+        echo "error de conexion";
+        exit;
+      }
+
+      $result = pg_query($con,"SELECT email,contrasenia FROM vendedores);
+      if(!$result){
+        echo "ocurrio un error";
+        exit;
+      }
+      $resultado =  pg_fetch_all($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
