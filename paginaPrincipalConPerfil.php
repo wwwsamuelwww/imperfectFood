@@ -1,25 +1,13 @@
 <?php
 
-$hostname = "localhost";
-$database = "imperfectfood";
-$username = "postgres";
-$password = "betaalfa800135555";
+      require 'conexion.php';
+      $result = pg_query($conexion,"SELECT nombre_producto,precio,precio_oferta,stock,descripcion,ruta FROM productos,imagenes WHERE productos.id_imagen = imagenes.id_imagen ");
+      
+      $resultado =  pg_fetch_all($result);
 
-$con = pg_connect("host=$hostname dbname=$database user=$username password=$password");
-
-if(!$con){
-  echo "error de conexion";
-  exit;
-}
-
-$result = pg_query($con,"SELECT nombreproducto,precio,preciooferta,stock,descripcion,ruta FROM productos,imagenesproductos WHERE productos.idproducto = imagenesproductos.idproducto ");
-if(!$result){
-  echo "ocurrio un error";
-  exit;
-}
-$resultado =  pg_fetch_all($result);
-
-
+      session_start();
+      $email1 = $_SESSION['email'];
+      $pass1 = $_SESSION['pass'];
 
 
 ?>

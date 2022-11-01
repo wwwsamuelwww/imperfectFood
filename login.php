@@ -1,26 +1,3 @@
-<?php
-
-      $hostname = "localhost";
-      $database = "imperfectfood";
-      $username = "postgres";
-      $password = "password";
-
-      $con = pg_connect("host=$hostname dbname=$database user=$username password=$password");
-
-      if(!$con){
-        echo "error de conexion";
-        exit;
-      }
-
-      $result = pg_query($con,"SELECT email,contrasenia FROM vendedores);
-      if(!$result){
-        echo "ocurrio un error";
-        exit;
-      }
-      $resultado =  pg_fetch_all($result);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +19,7 @@
         <div class="container-fluid">
           <div>
             <img height="30px" alt="logo" src="imagenes/logo1.jpeg">
-            <a class="navbar-brand" href="sinRegistrarPaginaPrincipal.php">
+            <a class="navbar-brand" href="paginaPrincipal.php">
               Imperfect Food
            </a>
           </div>
@@ -90,7 +67,7 @@
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                      <form action="registrarProductos.php" method="post" enctype = "multipart/form-data" class="needs-validation" novalidate>
+                      <form action="redirigirUsuario.php" method="post" enctype = "multipart/form-data" class="needs-validation" novalidate>
 
                         
                           <div class="form-outlin.e mb-4">

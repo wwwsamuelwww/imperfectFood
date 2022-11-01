@@ -1,23 +1,18 @@
 <?php
 
-      $hostname = "localhost";
-      $database = "imperfectfood";
-      $username = "postgres";
-      $password = "betaalfa800135555";
+      require 'conexion.php';
 
-      $con = pg_connect("host=$hostname dbname=$database user=$username password=$password");
+      session_start();
 
-      if(!$con){
-        echo "error de conexion";
-        exit;
-      }
+      $ema = $_SESSION['email1'];
+      $pas = $_SESSION['pass1'];
 
-      $result = pg_query($con,"SELECT usuarioimagenes.idvendedor,nombrenegocio,email,contrasenia,telefono,ubicacion,descripcion,ruta FROM vendedores,usuarioimagenes WHERE vendedores.idvendedor = usuarioimagenes.idvendedor ORDER BY idvendedor DESC LIMIT 1");
-      if(!$result){
-        echo "ocurrio un error";
-        exit;
-      }
-      $resultado =  pg_fetch_all($result);
+
+      $tablaDeDatos = pg_query($conexion,"SELECT usuarios.nombre,email,telefono,ubicacion,descripcion,ruta FROM usuarios,imagenes WHERE usuarios.email = '$ema' and usuarios.contrasenia = '$pas'and usuarios.id_imagen = imagenes.id_imagen");
+
+      $resultado =  pg_fetch_all($tablaDeDatos);
+
+     
 
 
 
@@ -69,7 +64,7 @@
                       <p class="mb-0">Nombre de negocio:</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0"><?php echo $row['nombrenegocio'];?></p>
+                      <p class="text-muted mb-0"><?php echo $row['nombre'];?></p>
                     </div>
                   </div>
                   <hr>
@@ -121,11 +116,11 @@
                 <div class="col-2">
                     <a href="paginaPrincipalConPerfil.php" class="btn btn-danger rounded-0" role="button">Volver</a>
                 </div>
-                <!--
+                
                 <div class="col-2">
-                    <a href="miPerfil.html" class="btn btn-success" role="button">Editar Perfil</a>
+                    <a href="editarPerfil.php" class="btn btn-success" role="button">Editar Perfil</a>
                 </div>
-                 -->
+                
                 <div class="col-2">
                     <a href="formularioProductos.php" class="btn btn-success rounded-0" role="button">Añadir Producto</a>
                 </div>

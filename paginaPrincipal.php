@@ -1,28 +1,11 @@
 <?php
-
-$hostname = "localhost";
-$database = "imperfectfood";
-$username = "postgres";
-$password = "betaalfa800135555";
-
-$con = pg_connect("host=$hostname dbname=$database user=$username password=$password");
-
-if(!$con){
-  echo "error de conexion";
-  exit;
-}
-
-$result = pg_query($con,"SELECT nombreproducto,precio,preciooferta,stock,descripcion,ruta FROM productos,imagenesproductos WHERE productos.idproducto = imagenesproductos.idproducto ");
-if(!$result){
-  echo "ocurrio un error";
-  exit;
-}
-$resultado =  pg_fetch_all($result);
-
-
-
-
+      require 'conexion.php';
+      
+      $result = pg_query($conexion,"SELECT nombre_producto,precio,precio_oferta,stock,descripcion,ruta FROM productos,imagenes WHERE productos.id_imagen = imagenes.id_imagen ");
+     
+      $resultado =  pg_fetch_all($result);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,12 +33,16 @@ $resultado =  pg_fetch_all($result);
              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Vendedores
+                      Registrarse
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="formularioVendedores.php">Registrarse</a></li>
+                    <li><a class="dropdown-item" href="formularioVendedores.php">Vendedor</a></li>
+                    <li><a class="dropdown-item" href="#">Comprador</a></li>
                   </ul>
                 </li>
+                <a class="nav-link" href="login.php">
+                  Iniciar Sesión
+                </a>
               </ul>
             </div>
         </div>
