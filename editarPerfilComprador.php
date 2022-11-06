@@ -12,3 +12,17 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
 session_start();
 $ema = $_SESSION['email1'];
 $pas = $_SESSION['pass1'];
+
+$result = mysqli_query($conn,"SELECT NombreNegocio, contrasenia, Email, Telefono, Ubicacion FROM compradores WHERE compradores.Email = '$ema' AND compradores.contrasenia = '$pas' LIMIT 1");
+
+if(!$result){
+   echo "ocurrio un error";
+   exit;
+}
+
+for($i = 0; $resultado[$i] = mysqli_fetch_assoc($result); $i++) ;
+array_pop($resultado);    
+?>
+
+
+<!DOCTYPE html>
