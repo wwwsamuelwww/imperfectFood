@@ -1,28 +1,6 @@
 <?php
 
-$hostname = "ec2-3-223-242-224.compute-1.amazonaws.com";
-$database = "d3gjt0iuuaep2i";
-$username = "abtwruisrazyca";
-$password = "cfa4a97fb0bc0aceab480115983e949c4365b9e41cf9a44ffa260d8819aa2e0f";
-
-    $conexion = pg_connect("host=$hostname dbname=$database user=$username password=$password");
-    
-
-    $query=("INSERT INTO vendedores(nombrenegocio,email,contrasenia,telefono,ubicacion,descripcion)VALUES('$_POST[NombreNegocio]','$_POST[Email]','$_POST[Password]','$_POST[Telefono]','$_POST[Ubicacion]','$_POST[Descripcion]')");
-
-    $consulta=pg_query($conexion,$query);
-
-    if(!$conexion){
-        echo "error de conexion";
-        exit;
-      }
-
-      $result = pg_query($conexion,"SELECT idvendedor FROM vendedores ORDER BY idvendedor DESC LIMIT 1");
-      if(!$result){
-        echo "ocurrio un error";
-        exit;
-      }
-      $resultado =  $arr = pg_fetch_array($result, 0, PGSQL_NUM);
+      require 'conexion.php';
       
 
       include_once 'google-api-php-client-v2.7.2-PHP7.0/vendor/autoload.php';
@@ -66,9 +44,15 @@ $password = "cfa4a97fb0bc0aceab480115983e949c4365b9e41cf9a44ffa260d8819aa2e0f";
                 $ruta = 'https://drive.google.com/uc?export=download&id=' . $result->id;
                 $extension = $_FILES['ImagenVendedor']['type'];
 
-                $query2=("INSERT INTO usuarioimagenes(idvendedor,nombre,ruta,extension) VALUES ('$resultado[0]','$nombre','$ruta','$extension')");
-                $consulta2=pg_query($conexion,$query2);
+                $insertarimagen = pg_query($conexion,"INSERT INTO imagenes(nombre,ruta,extension) VALUES ('$nombre','$ruta','$extension')");
+                $consulta_id_imagen = pg_query($conexion,"SELECT id_imagen FROM imagenes ORDER BY id_imagen DESC LIMIT 1");
+                $fila = pg_fetch_row($consulta_id_imagen);
+                $idimagen = $fila[0];
+                $insertarvendedor = pg_query($conexion,"INSERT INTO usuarios(nombre,email,contrasenia,telefono,ubicacion,descripcion,tipo_usuario,id_imagen)VALUES('$_POST[NombreNegocio]','$_POST[Email]','$_POST[Password]','$_POST[Telefono]','$_POST[Ubicacion]','$_POST[Descripcion]','V','$idimagen')");
+
+
                 pg_close();
+
             }catch(Google_Service_Exception $gs){
                 $m=json_decode($gs->getMessage());
                 echo $m->error->message;
@@ -76,6 +60,8 @@ $password = "cfa4a97fb0bc0aceab480115983e949c4365b9e41cf9a44ffa260d8819aa2e0f";
                 echo $e->getMessage();  
             }
 
+            $email = $_POST['Email'];
+            $pass = $_POST['Password'];
       
       $url= 'paginaPrincipalConPerfil.php';
       echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';

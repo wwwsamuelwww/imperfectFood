@@ -1,5 +1,5 @@
 function password_show_hide() {
-    var x = document.getElementById("Password");
+    var x = document.getElementById("password");
     var show_eye = document.getElementById("show_eye");
     var hide_eye = document.getElementById("hide_eye");
     hide_eye.classList.remove("d-none");

@@ -1,26 +1,6 @@
 <?php
-      $hostname = "ec2-3-223-242-224.compute-1.amazonaws.com";
-      $database = "d3gjt0iuuaep2i";
-      $username = "abtwruisrazyca";
-      $password = "cfa4a97fb0bc0aceab480115983e949c4365b9e41cf9a44ffa260d8819aa2e0f";
-
-      $conexion = pg_connect("host=$hostname dbname=$database user=$username password=$password");
-      $query=("INSERT INTO productos(nombreproducto,precio,preciooferta,stock,descripcion) VALUES('$_REQUEST[NombreDeProducto]','$_REQUEST[Precio]','$_REQUEST[PrecioDeOferta]','$_REQUEST[Stock]','$_REQUEST[Descripcion]')");
-      $consulta=pg_query($conexion,$query);
-
-      if(!$conexion){
-        echo "error de conexion";
-        exit;
-      }
-
-      $result = pg_query($conexion,"SELECT idproducto FROM productos ORDER BY idproducto DESC LIMIT 1");
-      if(!$result){
-        echo "ocurrio un error";
-        exit;
-      }
-      $resultado =  $arr = pg_fetch_array($result, 0, PGSQL_NUM);
+      require 'conexion.php';
       
-
       include_once 'google-api-php-client-v2.7.2-PHP7.0/vendor/autoload.php';
 
       // Variables de credenciales.
@@ -62,9 +42,15 @@
                 $ruta = 'https://drive.google.com/uc?export=download&id=' . $result->id;
                 $extension = $_FILES['Imagen']['type'];
 
-                $query2=("INSERT INTO imagenesproductos(idproducto,nombre,ruta,extension) VALUES ('$resultado[0]','$nombre','$ruta','$extension')");
-                $consulta2=pg_query($conexion,$query2);
+                $insertarimagen = pg_query($conexion,"INSERT INTO imagenes(nombre,ruta,extension) VALUES ('$nombre','$ruta','$extension')");
+                
+                $consulta_id_imagen = pg_query($conexion,"SELECT id_imagen FROM imagenes ORDER BY id_imagen DESC LIMIT 1");
+                $fila = pg_fetch_row($consulta_id_imagen);
+                $idimagen = $fila[0];
+                $insertarproducto=pg_query($conexion,"INSERT INTO productos(id_usuario_vendedor,nombre_producto,precio,precio_oferta,stock,descripcion,id_imagen) VALUES('1','$_REQUEST[NombreDeProducto]','$_REQUEST[Precio]','$_REQUEST[PrecioDeOferta]','$_REQUEST[Stock]','$_REQUEST[Descripcion]','$idimagen')");
+                
                 pg_close();
+               
             }catch(Google_Service_Exception $gs){
                 $m=json_decode($gs->getMessage());
                 echo $m->error->message;

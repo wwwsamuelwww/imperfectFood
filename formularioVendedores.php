@@ -10,6 +10,7 @@
     crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/fondoVendedores.css">
     <title>Imperfect Food</title>
     
 
@@ -21,14 +22,14 @@
        </div>
     </nav>
 
-
+  <section class="fondoVendedores">
     <div class = "container">
         <div class="text-center" style="font-family:Arial;font-size: 18px">
             <h2>Registro de Vendedores</h2>
         </div class="alert alert-danger" role="alert">
             <div class="row justify-content-center my-5" style="font-family:Arial;font-size: 16px">
                 <form action="registrarVendedores.php" method="post" enctype = "multipart/form-data" class="needs-validation" novalidate>
-                    <div class="row justify-content-center my-1">
+                    <div class="row justify-content-center my-1" style=" margin-top: 50px; border-radius: 10px; box-shadow: 10px 10px 10px -6px black; background-color:white;">
                         <div class="col-lg-5">
                             
                           <div class="col">
@@ -69,7 +70,7 @@
                           
                           <div class="col">
                               <label for="Telefono" class="form-label">Telefono: </label>
-                             <input type="text" value="nommdsadad" name="Telefono" id="Telefono" class="form-control" pattern = "[7|6][0-9]{7}$" required></input>
+                             <input type="text" name="Telefono" id="Telefono" class="form-control" pattern = "[7|6][0-9]{7}$" required></input>
                              <div class="invalid-feedback">
                                 El telefono debe tener 8 digitos y comenzar con el 6 o el 7
                              </div>
@@ -141,6 +142,8 @@
                 </form>
             </div>
     </div>
+    <br>
+  </section>
     <script src="validacion.js"></script>
     <script src="paraElOjo.js"></script>
 
