@@ -38,3 +38,23 @@ array_pop($resultado);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/estiloFormularioVendedores.css">
     <title>Imperfect Food</title>
+    
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <img height="45px" alt="logo" src="imagenes/Logo-Barra.jpeg">
+       <div class="container-fluid" style="font-family:Helvetica;font-size: 18px">
+          <a class="navbar-brand" href="paginaPrincipalVendedores.php">Imperfect Food</a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <p style="opacity: 0;">Para rellenar</p>
+          </div>
+       </div>
+    </nav>
+
+    <div class = "container">
+        
+            <div class="row justify-content-center my-2" style="font-family:Arial;font-size: 16px">
+                <form action="conexiones/guardarPerfilVendedor.php" method="post" enctype = "multipart/form-data" class="needs-validation" novalidate>
+                    <div class="row justify-content-center my-1" style=" margin-top: 50px; border-radius: 10px; box-shadow: 10px 10px 10px -6px black; background-color:white;">
+                    <div class="text-center" style="font-family:Arial;font-size: 18px">
