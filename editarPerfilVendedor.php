@@ -78,3 +78,23 @@ array_pop($resultado);
                                  <div class="invalid-feedback">
                                     La contrasea debe tener un minimo de 6 caracteres y maximo 14
                                   </div>
+                               
+                            </div>
+                            <div class="col-lg-2 my-2">
+                                <div class="input-group-append my-4">
+                                    <span class="input-group-text" onclick="password_show_hide();">
+                                      <i class="fas fa-eye" id="show_eye"></i>
+                                      <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                          </div>
+                          
+                          <div class="col">
+                              <label for="Telefono" class="form-label">Teléfono: </label>
+                             <input type="text" value="<?php echo $row['Telefono'];?>" name="Telefono" id="Telefono" class="form-control" pattern = "[7|6][0-9]{7}$" required></input>
+                             <div class="invalid-feedback">
+                                El telefono debe tener 8 digitos y comenzar con el 6 o el 7
+                             </div>
+                          </div>
+                        
