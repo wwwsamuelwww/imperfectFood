@@ -58,3 +58,23 @@ array_pop($resultado);
                 <form action="conexiones/guardarPerfilVendedor.php" method="post" enctype = "multipart/form-data" class="needs-validation" novalidate>
                     <div class="row justify-content-center my-1" style=" margin-top: 50px; border-radius: 10px; box-shadow: 10px 10px 10px -6px black; background-color:white;">
                     <div class="text-center" style="font-family:Arial;font-size: 18px">
+                      <h2>Editar Perfil</h2>
+                    </div class="alert alert-danger" role="alert">
+                      <?php if (is_array($resultado) || is_object($resultado)): foreach($resultado as $row){ ?>
+                        <div class="col-lg-5">
+                        
+                          <div class="col">
+                              <label for="NombreNegocio" class="form-label">Nombre de Negocio:</label>
+                               <input type="text" value= "<?php echo $row['NombreNegocio'];?>" name="NombreNegocio" id="NombreNegocio"class="form-control" pattern = "^[A-Z|a-z|0-9|`|&|.|\s|!|-|,]{3,20}$" required>
+                             <div class="invalid-feedback">
+                               Ingrese un nombre valido
+                             </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-lg-10">
+                                <label for="password" class="form-label">Contraseña:</label>
+                                 <input name="password" value="<?php echo $row['contrasenia'];?>" type="password" class="form-control" id="password" aria-label="password" aria-describedby="basic-addon1" pattern = "^[A-Z|a-z|0-9|&|$|@|-|%|*|#|,|.|;|+|/]{6,14}$" required />
+                                 <div class="invalid-feedback">
+                                    La contrasea debe tener un minimo de 6 caracteres y maximo 14
+                                  </div>
