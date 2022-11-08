@@ -18,3 +18,16 @@
     
     $consultaVendedores = mysqli_query($conn,"SELECT * FROM vendedores WHERE Email = '$emailactual' AND vendedores.contrasenia = '$passactual' LIMIT 1");
     $consultaCompradores = mysqli_query($conn,"SELECT * FROM compradores WHERE Email = '$emailactual' AND compradores.contrasenia = '$passactual' LIMIT 1");
+    
+     if (mysqli_num_rows($consultaVendedores) > 0){
+        $url = '../paginaPrincipalVendedores.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+
+    }else if(mysqli_num_rows($consultaCompradores) > 0){
+        $url= '../paginaPrincipalCompradores.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+    }else{
+        $url= '../loginFallido.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+    } 
+?>
