@@ -98,3 +98,23 @@ array_pop($resultado);
                              </div>
                           </div>
                         
+
+                          <div class="col">
+                            <label for="Ubicacion" class="form-label">Ubicación: </label>
+                            <input type="text" value="<?php echo $row['Ubicacion'];?>" name="Ubicacion" id="Ubicacion" class="form-control" placeholder="https://goo.gl/maps/........." pattern = "https:\/\/goo.gl\/maps+\/\w+|https:\/\/maps.app.goo.gl\/\w+|" required>
+                            <div class="invalid-feedback">
+                              Ingrese una ubicacion valida
+                            </div>
+                          </div>
+                        
+                        
+                          <div class="col">
+                             <label for="Descripcion" class="form-label">Descripción: </label>
+                             <input type="text" value="<?php echo $row['Descripcion'];?>" name="Descripcion" id="Descripcion" class = "form-control" pattern =  "^[A-Z|a-z|0-9|.|,|\s]{30,300}$"> 
+                          </div>
+                        </div>
+
+                       
+                        
+
+                        <div class="col-lg-4 align-self-center">
