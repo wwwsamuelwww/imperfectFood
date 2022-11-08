@@ -9,3 +9,9 @@
     session_start();
 
     $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    
+    $_SESSION['email1'] = $_POST['Email'];
+    $_SESSION['pass1'] = $_POST['password'];
+
+    $emailactual = $_SESSION['email1'];
+    $passactual = $_SESSION['pass1'];
