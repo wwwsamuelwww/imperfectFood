@@ -68,3 +68,17 @@ array_pop($resultado);
                   </div class="alert alert-danger" role="alert">
       
                   <div class="col">
+                    <label for="NombreNegocio" class="form-label">Nombre:</label>
+                    <input type="text" value= "<?php echo $row['NombreNegocio'];?>" name="NombreNegocio" id="NombreNegocio" class="form-control"
+                      pattern="^[A-Z|a-z|0-9|`|&|.|\s|!|-|,]{3,20}$" required>
+                    <div class="invalid-feedback">
+                      Ingrese un nombre valido
+                    </div>
+      
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <label for="password" class="form-label">Contraseña:</label>
+                      <input name="password" value="<?php echo $row['contrasenia'];?>" type="password" class="form-control" id="password" aria-label="password"
+                        aria-describedby="basic-addon1" pattern="^[A-Z|a-z|0-9|&|$|@|-|%|*|\s|#|,|.|;|+|/]{6,14}$" required />
