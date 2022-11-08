@@ -9,4 +9,17 @@
    $query_builder = TRUE;
    // Connect to DB
    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+   $emailactual = $_POST['Email'];
+
+    $consultaVendedores = mysqli_query($conn,"SELECT * FROM vendedores WHERE Email = '$emailactual'  LIMIT 1");
+    $consultaCompradores = mysqli_query($conn,"SELECT * FROM compradores WHERE Email = '$emailactual' LIMIT 1");
+
+    if (mysqli_num_rows($consultaVendedores) > 0){
+        $url = '../formularioCompradoresFallido.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+    }else if(mysqli_num_rows($consultaCompradores) > 0){
+        $url= '../formularioCompradoresFallido.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+    }
 ?>
