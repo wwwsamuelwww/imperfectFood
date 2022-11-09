@@ -118,3 +118,24 @@ array_pop($resultado);
                         
 
                         <div class="col-lg-4 align-self-center">
+                          <style>
+                            #output { 
+                           position:relative; 
+                           left:70px; 
+                          } 
+                          </style>
+                          
+                          <img src="data:image/jpg;base64,<?php echo base64_encode($row['ImagenVendedor']);?>" id="output" top= ""width="200px" height="200px"/>
+                            <div style="opacity: 0;">
+                              Textosasasa
+                            </div>
+                          <div class="row">
+                            <input type="file" value="data:image/jpg;base64,<?php echo base64_encode($row['ImagenVendedor']);?>" name="ImagenVendedor" id="ImagenVendedor" class = "form-control" accept="image/png, image/jpeg" onchange="loadFile(event)" required>
+                          <div class="invalid-feedback">Necesita ingresar una imagen</div>
+                          </div>
+                          
+                          <script>
+                            var loadFile = function(event) {
+                              var output = document.getElementById('output');
+                              output.src = URL.createObjectURL(event.target.files[0]);
+                              output.onload = function() {
