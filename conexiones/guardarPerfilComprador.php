@@ -13,3 +13,18 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
 
 session_start();
     $_SESSION['pass1'] = $_POST['password'];
+
+    $emailactual = $_SESSION['email1'];
+    $passactual = $_SESSION['pass1'];
+
+   $Name = $_POST['NombreNegocio']; 
+   $password = $_POST['password'];
+   $number = $_POST['Telefono'];
+   $ubicacion = $_POST['Ubicacion'];
+
+   $query = "UPDATE compradores SET NombreNegocio = '$Name', contrasenia = '$password',  Telefono = '$number', Ubicacion = '$ubicacion' WHERE compradores.Email = '$emailactual'";
+   $resultado = $conn->query($query);
+
+	$url= '../paginaPrincipalCompradores.php';
+    echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+?>
