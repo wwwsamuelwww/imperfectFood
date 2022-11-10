@@ -21,5 +21,18 @@
     }else if(mysqli_num_rows($consultaCompradores) > 0){
         $url= '../formularioCompradoresFallido.php';
         echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-    }
+    }else{
+        
+        session_start();
+
+        //$_SESSION['email1'] = $_POST['Email'];
+        //$_SESSION['pass1'] = $_POST['password'];
+
+	    $Name = $_POST['NombreNegocio']; 
+        $password = $_POST['password'];
+        $email = $_POST['Email'];
+	    $number = $_POST['Telefono'];
+        $ubicacion = $_POST['Ubicacion'];
+
+        $query = "INSERT INTO compradores(NombreNegocio, contrasenia,  Email, Telefono, Ubicacion) VALUES ('$Name', '$password', '$email', '$number', '$ubicacion')";
 ?>
