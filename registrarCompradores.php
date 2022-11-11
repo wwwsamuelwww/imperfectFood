@@ -35,4 +35,16 @@
         $ubicacion = $_POST['Ubicacion'];
 
         $query = "INSERT INTO compradores(NombreNegocio, contrasenia,  Email, Telefono, Ubicacion) VALUES ('$Name', '$password', '$email', '$number', '$ubicacion')";
+        $insertar = $conn->query($query);
+        if($insertar){
+
+            $last_id = $conn->insert_id;
+            $_SESSION['idUsuario'] = $last_id;
+    
+            $url= '../paginaPrincipalCompradores.php';
+            echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+        }else{
+            echo "Los datos no pudieron insertarse";
+        }  
+    } 
 ?>
