@@ -2,7 +2,8 @@
 
         let pattern1 = /^[A-Z|a-z|0-9|`|&|.|\s|!|-|,]{3,20}$/; 
         let pattern2 = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
-        let pattern3 = /^[A-Z|a-z|0-9|&|$|@|-|%|*|#|,|.|;|+|/]{6,14}$/; 
+        let pattern3 = /^[A-Z|a-z|0-9|&|$|@|-|%|*|#|,|.|;|+|/]{6,14}$/;
+        let pattern4 = /[7|6][0-9]{7}$/;
   
   
         var forms = document.querySelectorAll('.needs-validation')
@@ -42,6 +43,17 @@
                 if(formulario[2].value == ""){
                   document.getElementById("validacion3").innerText = "Este campo es obligatorio";
       
+                }
+              }
+               if (!formulario[4].value.match(pattern4)) {
+                event.preventDefault()
+                event.stopPropagation()
+                document.getElementById("validacion4").innerText = "El teléfono debe tener 8 digitos y comenzar con el 6 o el 7";
+              
+                if(formulario[4].value == ""){
+                
+                  document.getElementById("validacion4").innerText = "Este campo es obligatorio";
+                  
                 }
               }
               form.classList.add('was-validated')
