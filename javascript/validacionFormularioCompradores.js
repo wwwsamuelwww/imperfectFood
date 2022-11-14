@@ -2,6 +2,8 @@
 
         let pattern1 = /^[A-Z|a-z|0-9|`|&|.|\s|!|-|,]{3,20}$/; 
         let pattern2 = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
+        let pattern3 = /^[A-Z|a-z|0-9|&|$|@|-|%|*|#|,|.|;|+|/]{6,14}$/; 
+  
   
         var forms = document.querySelectorAll('.needs-validation')
     
@@ -31,7 +33,17 @@
                   document.getElementById("validacion2").innerText = "Este campo es obligatorio";
                 }
               }
-    
+             
+             if (!formulario[2].value.match(pattern3)) {
+                event.preventDefault()
+                event.stopPropagation()
+                document.getElementById("validacion3").innerText = "La contraseña debe tener un minimo de 6 caracteres y maximo 14";
+                
+                if(formulario[2].value == ""){
+                  document.getElementById("validacion3").innerText = "Este campo es obligatorio";
+      
+                }
+              }
               form.classList.add('was-validated')
     
             }, false)
