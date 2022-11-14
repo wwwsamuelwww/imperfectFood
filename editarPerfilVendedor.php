@@ -10,10 +10,12 @@ $query_builder = TRUE;
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 session_start();
-$ema = $_SESSION['email1'];
-$pas = $_SESSION['pass1'];
+//$ema = $_SESSION['email1'];
+//$pas = $_SESSION['pass1'];
 
-$result = mysqli_query($conn,"SELECT NombreNegocio, contrasenia, Email, Telefono, Ubicacion, Descripcion,ImagenVendedor FROM vendedores WHERE vendedores.Email = '$ema' AND vendedores.contrasenia = '$pas' LIMIT 1");
+$id = $_SESSION['idUsuario'];
+
+$result = mysqli_query($conn,"SELECT NombreNegocio, contrasenia, Email, Telefono, Ubicacion, Descripcion,ImagenVendedor FROM vendedores WHERE vendedores.id = '$id' LIMIT 1"); 
 
 if(!$result){
    echo "ocurrio un error";
@@ -139,3 +141,35 @@ array_pop($resultado);
                               var output = document.getElementById('output');
                               output.src = URL.createObjectURL(event.target.files[0]);
                               output.onload = function() {
+                                URL.revokeObjectURL(output.src) 
+                              }
+                            };
+                          </script>
+                        </div>
+
+                        <div class="d-flex justify-content-center flex-nowrap my-3">
+                              <div >
+                                  <a href="miPerfil.php" class="btn btn-danger rounded-0" role="button">Cancelar</a>
+                              </div>
+                              <div style="opacity: 0;">
+                                Textosasasa
+                              </div>
+                              <div>
+                                  <button type="submit" class="btn btn-success rounded-0">Guardar</button>
+                              </div>
+                        </div>
+                   </div>
+
+                    <?php } endif;?>
+                    </div>
+                </form>
+            </div>
+    </div>
+    <script src="javascript/validacionFormularioVendedoresEditar.js"></script>
+    <script src="javascript/paraElOjo.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" 
+    crossorigin="anonymous"></script>
+</body>
+</html>
