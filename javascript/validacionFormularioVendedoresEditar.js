@@ -51,3 +51,39 @@
     
               }
             }
+            if (!formulario[3].value.match(pattern4)) {
+              event.preventDefault()
+              event.stopPropagation()
+              document.getElementById("validacion4").innerText = "El teléfono debe tener 8 digitos y comenzar con el 6 o el 7";
+            
+              if(formulario[3].value == ""){
+              
+                document.getElementById("validacion4").innerText = "Este campo es obligatorio";
+                
+              }
+            }
+  
+            if (!formulario[4].value.match(pattern5)) {
+              event.preventDefault()
+              event.stopPropagation()
+              console.log("prueba")
+              document.getElementById("validacion5").innerText = "Ingrese una ubicación valida";
+              if(formulario[4].value == ""){
+              
+                document.getElementById("validacion5").innerText = "Este campo es obligatorio";
+    
+              }
+            }
+            console.log(formulario[6].files.length)
+  
+            if (formulario[6].files.length == 0) {
+              console.log("prueba imagen")
+              event.preventDefault()
+              event.stopPropagation()
+            }
+  
+            form.classList.add('was-validated')
+  
+          }, false)
+        })
+    })()
