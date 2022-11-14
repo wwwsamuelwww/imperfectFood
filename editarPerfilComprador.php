@@ -104,3 +104,22 @@ array_pop($resultado);
                         class="form-control" aria-label="confirm_password" aria-describedby="basic-addon1" required>
                       <div class="invalid-feedback">
                         La contraseña debe coincidir
+                      </div>
+                    </div>
+                    <div class="col-lg-2 my-2">
+                      <div class="input-group-append my-4">
+                        <span class="input-group-text" onclick="password_show_hide_confirm();">
+                          <i class="fas fa-eye" id="show_eye1"></i>
+                          <i class="fas fa-eye-slash d-none" id="hide_eye1"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col">
+                    <label for="Telefono" class="form-label">Teléfono: </label>
+                    <input type="text" value="<?php echo $row['Telefono'];?>" name="Telefono"  id="Telefono" class="form-control" pattern="[7|6][0-9]{7}$" required>
+                    <div id = "validacion3" class="invalid-feedback">
+                      El teléfono debe tener 8 digitos y comenzar con el 6 o el 7
+                    </div>
+                  </div>
