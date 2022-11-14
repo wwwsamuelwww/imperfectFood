@@ -82,3 +82,25 @@ array_pop($resultado);
                       <label for="password" class="form-label">Contraseña:</label>
                       <input name="password" value="<?php echo $row['contrasenia'];?>" type="password" class="form-control" id="password" aria-label="password"
                         aria-describedby="basic-addon1" pattern="^[A-Z|a-z|0-9|&|$|@|-|%|*|\s|#|,|.|;|+|/]{6,14}$" required />
+                      <div id = "validacion2" class="invalid-feedback">
+                        La contrasea debe tener un minimo de 6 caracteres y maximo 14
+                      </div>
+      
+                    </div>
+                    <div class="col-lg-2 my-2">
+                      <div class="input-group-append my-4">
+                        <span class="input-group-text" onclick="password_show_hide();">
+                          <i class="fas fa-eye" id="show_eye"></i>
+                          <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row">
+                    <div class="col">
+                      <label for="confirm_password" class="form-label">Confirmar contraseña: </label>
+                      <input type="password" value="<?php echo $row['contrasenia'];?>" placeholder="Confirmar Contraseña" name="confirm_password" id="confirm_password"
+                        class="form-control" aria-label="confirm_password" aria-describedby="basic-addon1" required>
+                      <div class="invalid-feedback">
+                        La contraseña debe coincidir
