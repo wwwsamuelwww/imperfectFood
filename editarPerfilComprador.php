@@ -138,3 +138,16 @@ array_pop($resultado);
       
                   </div>
                   <div class="d-flex justify-content-center flex-nowrap my-3">
+                    <div>
+                      <a href="paginaPrincipalCompradores.php" class="btn btn-danger rounded-0" role="button">Cancelar</a>
+                    </div>
+                    <div style="opacity: 0;">
+                      Textosasasa
+                    </div>
+                    <div>
+                      <button type="submit" class="btn btn-success rounded-0">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+                <?php } endif;?>
+              </div>
