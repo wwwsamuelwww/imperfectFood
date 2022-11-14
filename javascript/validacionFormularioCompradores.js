@@ -4,6 +4,7 @@
         let pattern2 = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
         let pattern3 = /^[A-Z|a-z|0-9|&|$|@|-|%|*|#|,|.|;|+|/]{6,14}$/;
         let pattern4 = /[7|6][0-9]{7}$/;
+        let pattern5 = /https:\/\/goo.gl\/maps+\/\w+|https:\/\/maps.app.goo.gl\/\w+|/;
   
   
         var forms = document.querySelectorAll('.needs-validation')
@@ -54,6 +55,16 @@
                 
                   document.getElementById("validacion4").innerText = "Este campo es obligatorio";
                   
+                }
+              }
+              if (!formulario[5].value.match(pattern5)) {
+                event.preventDefault()
+                event.stopPropagation()
+                document.getElementById("validacion5").innerText = "Ingrese una ubicación valida";
+                if(formulario[5].value == ""){
+                
+                  document.getElementById("validacion5").innerText = "Este campo es obligatorio";
+      
                 }
               }
               form.classList.add('was-validated')
