@@ -18,7 +18,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family:Helvetica;font-size: 18px">
       <div>
         <img height="30px" alt="logo" src="imagenes/logo1.jpeg">
         <a class="navbar-brand" href="sinRegistrarPaginaPrincipal.php">
