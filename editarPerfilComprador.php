@@ -123,3 +123,18 @@ array_pop($resultado);
                       El teléfono debe tener 8 digitos y comenzar con el 6 o el 7
                     </div>
                   </div>
+                   
+                  <div class="col">
+      
+                  </div>
+      
+                  <div class="col" style="margin-bottom: 5px;">
+                    <label for="validationCustom05" class="form-label">Ubicación: </label>
+                    <input type="text" value="<?php echo $row['Ubicacion'];?>" name="Ubicacion" id="Ubicacion" class="form-control"
+                      placeholder="https://goo.gl/maps/........." pattern="https:\/\/goo.gl\/maps+\/\w+" required>
+                    <div id = "validacion5" class="invalid-feedback">
+                      Ingrese una ubicación valida
+                    </div>
+      
+                  </div>
+                  <div class="d-flex justify-content-center flex-nowrap my-3">
