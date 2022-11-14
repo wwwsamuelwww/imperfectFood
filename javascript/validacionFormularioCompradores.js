@@ -1,7 +1,8 @@
  (function () {
 
         let pattern1 = /^[A-Z|a-z|0-9|`|&|.|\s|!|-|,]{3,20}$/; 
-    
+        let pattern2 = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
+  
         var forms = document.querySelectorAll('.needs-validation')
     
         Array.prototype.slice.call(forms)
@@ -22,7 +23,14 @@
                 }
               }
     
-             
+             if (!formulario[1].value.match(pattern2)) {
+                event.preventDefault()
+                event.stopPropagation()
+                document.getElementById("validacion2").innerText = "Ingrese un email valido";
+                if(formulario[1].value == ""){
+                  document.getElementById("validacion2").innerText = "Este campo es obligatorio";
+                }
+              }
     
               form.classList.add('was-validated')
     
