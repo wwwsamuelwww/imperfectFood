@@ -34,16 +34,15 @@
   
   <section class="fondoCompradores">  
     <div class = "container">
-          <div class="text-center">
-            <h2>Registro de Compradores</h2>
-          </div class="alert alert-danger" role="alert">
-          
-          <div class="row justify-content-center my-1">
-            <form action="registrarVendedores.php" method="post" enctype="multipart/form-data" class="needs-validation"
-              novalidate>
+      
+          <div class="row justify-content-center my-2">
+            <form action="conexiones/registrarCompradores.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
               <div class="row justify-content-center my-1">
                 <div class="col-lg-5" style=" margin-top: 50px; border-radius: 10px; box-shadow: 10px 10px 10px -6px black; background-color: white;">
-      
+                  <div class="text-center">
+                    <h2>Registro de Compradores</h2>
+                  </div class="alert alert-danger" role="alert">
+                  
                   <div class="col">
                     <label for="NombreNegocio" class="form-label">Nombre:</label>
                     <input type="text" name="NombreNegocio" id="NombreNegocio" class="form-control"
