@@ -107,7 +107,7 @@
                     <label for="Telefono" class="form-label">Telefono: </label>
                     <input type="text" name="Telefono"  id="Telefono" class="form-control" pattern="[7|6][0-9]{7}$" required>
                     <div class="invalid-feedback">
-                      El telefono debe tener 8 digitos y comenzar con el 6 o el 7
+                      El teléfono debe tener 8 dígitos y comenzar con el 6 o el 7
                     </div>
                   </div>
       
