@@ -69,8 +69,8 @@
                       <label for="password" class="form-label">Contraseña:</label>
                       <input name="password" type="password" class="form-control" id="password" aria-label="password"
                         aria-describedby="basic-addon1" pattern="^[A-Z|a-z|0-9|&|$|@|-|%|*|\s|#|,|.|;|+|/]{6,14}$" required />
-                      <div class="invalid-feedback">
-                        La contrasea debe tener un minimo de 6 caracteres y maximo 14
+                      <div id = "validacion3" class="invalid-feedback">
+                        La contraseña debe tener un mínimo de 6 caracteres y máximo 14
                       </div>
       
                     </div>
