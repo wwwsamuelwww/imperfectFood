@@ -119,8 +119,8 @@
                     <label for="validationCustom05" class="form-label">Ubicación: </label>
                     <input type="text" name="Ubicacion" id="Ubicacion" class="form-control"
                       placeholder="https://goo.gl/maps/........." pattern="https:\/\/goo.gl\/maps+\/\w+" required>
-                    <div class="invalid-feedback">
-                      Ingrese una ubicacion valida
+                    <div id = "validacion5" class="invalid-feedback">
+                      Ingrese una ubicación válida
                     </div>
       
                   </div>
