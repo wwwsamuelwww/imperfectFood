@@ -10,7 +10,6 @@ body{
  #modal{
     max-width: 50ch;
     min-width: 45ch;
-    text-align: center;
  }
 
  #modal button{
@@ -20,7 +19,9 @@ body{
   border: 0;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 25px;
   
 
  }
