@@ -12,3 +12,15 @@ body{
     min-width: 45ch;
     text-align: center;
  }
+
+ #modal button{
+
+
+  background-color: #198754;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  
+
+ }
