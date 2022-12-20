@@ -10,7 +10,7 @@
        $resultadoFinal = "";
        foreach($resultado2 as $row2){
                     
-                $resultadoFinal = $resultadoFinal.'<p> '.$row2['cantidad'].' '.$row2['NombreDeProducto'].' '.$row2['subtotal']. ' bs</p>';
+                $resultadoFinal = $resultadoFinal.'<p> '.$row2['cantidad'].' ' bs</p>';
                
         }
         echo "$resultadoFinal";
