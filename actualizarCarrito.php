@@ -8,3 +8,7 @@
     $subTotal = $_POST['subTotalParametro'];
     $id = $_POST['idProducto'];
     session_start();
+    $idusuario = $_SESSION['idUsuario'];
+    $resultado = mysqli_query($conn,"UPDATE carrito SET carrito.cantidad = '$cantidad',carrito.subtotal = '$subTotal' WHERE carrito.idcomprador = '$idusuario' AND carrito.idproducto = '$id'");
+
+?>
